@@ -10,5 +10,6 @@ public class Demo {
         System.out.println("Your height is " + height + "\nPlease insert the speed limit:");
         mph = i.nextDouble();
         System.out.println("The speed limit is " + mph + " mph");
+        i.close();
     }
 }
