@@ -23,7 +23,7 @@ public class Lab02 {
         double a = Math.sqrt(s*(s-s1)*(s-s2)*(s-s3)); // area
         double xc = (x1+x2+x3)/3; // horizontal centroid
         double yc = (y1+y2+y3)/3; // vertical centroid
-        System.out.println(x1 + "\n" + y1 + "\n" + x2 + "\n" + y2 + "\n" + x3 + "\n" + y3 + "\n" + s1 + "\n" + s2 + "\n" + s3 + "\n" + p + "\n" + s + "\n" + a + "\n" + xc + "\n" + yc);
+        System.out.println(x1 + "\n" + y1 + "\n" + x2 + "\n" + y2 + "\n" + x3 + "\n" + y3 + "\n" + s1 + "\n" + s2 + "\n" + s3 + "\n" + p + "\n" + s + "\n" + a + "\n" + "(" + xc + ", " + yc + ")");
         i.close(); // close Scanner
     }  // close main
 } // close Lab02
