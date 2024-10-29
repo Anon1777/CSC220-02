@@ -3,7 +3,7 @@
  * Filename   : Lab06.java
  * Description: displays the product of two numbers, regardless of variable type
  */
-import java.util.*;
+// import java.util.*;
 public class Lab06 {
     public static void main(String[] args) {
         // Scanner i = new Scanner(System.in);
