@@ -1,51 +1,42 @@
-import java.util.Random;
-import java.awt.Color;
-public class Wolf {
-    private int x,y,size;
-    private Color color;
-    private World world;
-    public Random random = new Random();
-    public Wolf(int x, int y, int size, Color color, World world){
-        this.x=random.nextInt(x);
-        this.y=random.nextInt(y);
-        size = 1;
-        color = new Color(
-            random.nextInt(256), 
-            random.nextInt(256), 
-            random.nextInt(256)
-        );
-        this.world = world;
-    }
-    public void setX(int x){
-        this.x=x;
-    }
-    public int getX(){
-        return x;
-    }
-    public void setY(int y){
-        this.y=y;
-    }
-    public int getY(){
-        return y;
-    }
-    public void walk(){
-        int dx = random.nextInt(-1, 1);
-        int dy = random.nextInt(-1, 1);
-        this.setX(this.getX() + dx);
-        this.setY(this.getY() + dy);
-        if(this.getX())>world.getNcols()){
-            this.setX(0);
-        }else if(this.getX()<0){
-            this.setX(world.getNcols());
-        }
-        if(this.getY()>world.getNrows()){
-            this.setY(0);
-        }else if(this.getY()<0){
-            this.setX(world.getNrows());
-        }
-    }
-    public void draw(){
-        StdDraw.setPenColor(color);
-        StdDraw.filledSquare((double)(this.getX()), (double)(this.getY()), (double)(size));
-    }
-}
+import java.util.Random; // import random object
+public class Wolf extends Animal { // open Wolf
+    private Color fill = Color.BLACK; // fill = black
+
+    public Wolf(int row, int col, int size, World world) { // open Wolf constructor
+        super(row,col,size,world); // extend row, col, size, and world from Animal
+        this.prob = 0.05;
+        this.delta_energy = 20;
+        Random rand = new Random();
+        this.energy = rand.nextInt((2*delta_energy)); // energy is a random Integer from 0 inclusive to 20 exclusive
+    } // close Wolf constructor
+
+    public void draw() { // open draw method
+        int x = row * world.getGridSize();
+        int y = col * world.getGridSize();
+        StdDraw.setPenColor(fill);
+        StdDraw.filledSquare(x, y, size/2); // cut in half because its half size and pdf says size is the full width
+    } // close draw method
+
+    public void reproduce() { // open reproduce method
+        if (Math.random() < prob) { // open if
+            energy/=2.0;
+            world.add(new Wolf(row,col,size,world)); // add new Wolf to world ArrayList
+        } // close if
+    } // close reproduce method
+
+    public boolean eat() { // open eat method
+        Sheep food = world.sheepAt(row, col);
+        if (food != null) { // open if
+            food.die(); // if food exists at the same place as wolf, kill it
+            energy+=delta_energy; // add energy
+            return true;
+        } // close if
+        return false;
+    } // close eat method
+
+    public void die() { // open die method
+        if (energy < 0) { // open if
+            world.remove(this); // kill wolf if energy is depleted
+        } // close if
+    } // close die method
+} // close Wolf

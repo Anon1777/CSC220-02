@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-// World.java
-=======
 /* Name       : Jo Farrell
  * Date       : 12/10/2024
  * File Name  : World.java
  * Description: Creates a world of wolves, sheep, and patches of grass using StdDraw.java
 */
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01
 // Modelled after https://juliadynamics.github.io/Agents.jl/stable/examples/predator_prey/
 
 import java.util.Random;
@@ -14,11 +10,6 @@ import java.util.ArrayList;
 
 public class World {
     // TODO: Declare instance variables
-<<<<<<< HEAD
-
-    public World(int nrows, int ncols, int gridsize, int nsheep, int nwolves) {
-        // TODO: Constructor implementation
-=======
     private int nrows;
     private int ncols;
     private int gridsize;
@@ -52,22 +43,10 @@ public class World {
                 patches[i][x] = new Patch(i,x,gridsize,this);
             }
         }
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01
     }
     // Find a Sheep at position
     public Sheep sheepAt(int r, int c) {
         // TODO: Return true if there is a Sheep at r, c
-<<<<<<< HEAD
-    }
-    public void remove(Sheep sh) {
-        // TODO: Remove the Sheep sh from this World
-    }
-    public void remove(Wolf wo) {
-        // TODO: Remove the Wolf wo from this World
-    }
-    // TODO: Implement oter methods, as needed
-    
-=======
         //loop backwards
         for (int i = sheep.size() - 1; i >= 0; i--) {
             if (sheep.get(i).getRow() == r && sheep.get(i).getCol() == c) {
@@ -118,19 +97,10 @@ public class World {
         return patches;
     }
 
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01
     // One step of simulation
     public void step() {
         // Step patch of grass
         // Step all Patch objects
-<<<<<<< HEAD
-
-        // Step sheep
-        // TODO: Step all Sheep objects
-
-        // Step wolves
-        // TODO: Step all Wolf objects
-=======
         for (int i = 0; i < nrows; i++) {
             for (int x = 0; x < ncols; x++) {
                 patches[i][x].step();
@@ -148,7 +118,6 @@ public class World {
         for (int i = wolves.size() - 1; i >= 0; i--) {
             wolves.get(i).step();
         }
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01
     }
     // Redraw everything
     public void draw() {
@@ -192,8 +161,4 @@ public class World {
             StdDraw.pause(100); // Pause for 100 milliseconds
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-public class Wolf {
-    
-}
-=======
 /* Name       : Jo Farrell
  * Date       : 12/10/2024
  * File Name  : Wolf.java
@@ -50,4 +45,3 @@ public class Wolf extends Animal { // open Wolf
         } // close if
     } // close die method
 } // close Wolf
->>>>>>> be7560c4010685b765f7a60aae190cde8e760b01
